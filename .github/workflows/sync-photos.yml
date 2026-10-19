@@ -1,0 +1,44 @@
+name: Auto Sync Photos Timeline
+
+on:
+  push:
+    paths:
+      - 'photos/**' # photos ফোল্ডারে নতুন ছবি আসলেই এটি রান হবে
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Photos JSON with Metadata
+        run: |
+          echo "[" > photos.json
+          first=true
+          
+          # photos ফোল্ডারের সব ধরণের ছবি স্ক্যান করার লুপ (jpg, png, heic ইত্যাদি)
+          find photos/ -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.heic" -o -iname "*.webp" \) | while read -r file; do
+            if [ "$file" = "photos/iconic.jpg" ]; then continue; fi
+            
+            # ফাইলের মডিফিকেশন টাইম থেকে বছর বের করা (মেটাডেটা ব্যাকআপ হিসেবে)
+            year=$(date -r "$file" +"%Y" 2>/dev/null || echo "Memories")
+            filename=$(basename "$file")
+            
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo "," >> photos.json
+            fi
+            
+            echo "  { \"url\": \"photos/$filename\", \"year\": \"$year\" }" >> photos.json
+          done
+          echo "]" >> photos.json
+
+      - name: Commit and Push List
+        run: |
+          git config --global user.name "Github Robot"
+          git config --global user.email "robot@github.com"
+          git add photos.json
+          git commit -m "Auto updated photos timeline list [skip ci]" || exit 0
+          git push
