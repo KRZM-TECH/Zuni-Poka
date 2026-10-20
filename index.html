@@ -10,8 +10,20 @@
         body { background-color: #050505; color: #f7ebd3; font-family: 'Montserrat', sans-serif; }
         .font-royal { font-family: 'Cinzel', serif; }
         * { -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
-        .gallery-img-container { overflow: hidden; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .gallery-img-container:hover { transform: scale(1.05); box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2); z-index: 10; }
+        
+        /* Premium Floating & Glow Hover Effect */
+        .gallery-img-container { 
+            position: relative;
+            overflow: hidden; 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+        }
+        .gallery-img-container:hover { 
+            transform: perspective(1000px) translateY(-8px) scale(1.04);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
+            z-index: 20;
+        }
         .secure-overlay { position: absolute; inset: 0; background: transparent; z-index: 5; }
     </style>
 </head>
@@ -42,7 +54,7 @@
         <img id="lightbox-img" src="" alt="View" class="max-w-full max-h-[92vh] object-contain rounded border border-amber-950/20 shadow-2xl">
     </div>
 
-    <!-- Updated Footer with Father's Name -->
+    <!-- Footer -->
     <footer class="text-center py-12 border-t border-amber-950/10 font-sans text-amber-700/40 text-xs tracking-widest uppercase">
         Archived with ♥ by Khalid Saifullah for Zunaisha Jannat Mariyam • Protected & Secure
     </footer>
@@ -57,20 +69,17 @@
 
         const timelineContainer = document.getElementById('timeline-container');
 
-        // রোবটের বানানো JSON ফাইল থেকে ডাটা রিড করা
         async function loadTimelineGallery() {
             try {
                 const response = await fetch('photos.json');
                 const photos = await response.json();
                 
-                // বছর অনুযায়ী গ্রুপ করা
                 const groups = {};
                 photos.forEach(photo => {
                     if (!groups[photo.year]) groups[photo.year] = [];
                     groups[photo.year].push(photo.url);
                 });
 
-                // বছরগুলোকে উল্টোভাবে সাজানো (নতুন বছর আগে আসবে)
                 const sortedYears = Object.keys(groups).sort((a, b) => b - a);
 
                 sortedYears.forEach(year => {
@@ -79,19 +88,21 @@
                     
                     let gridHTML = '';
                     groups[year].forEach(url => {
+                        // ম্যাসনরি ফ্লেক্স লেআউটের জন্য ম্যাক্সিমাম উইডথ ফিক্সড করা হয়েছে (max-w-[280px])
                         gridHTML += `
-                            <div class="relative gallery-img-container bg-neutral-900/40 p-2 rounded-xl border border-amber-950/10 cursor-pointer" onclick="openLightbox('${url}')">
+                            <div class="relative gallery-img-container w-full max-w-[280px] bg-neutral-900/40 p-2 rounded-xl border border-amber-950/10 cursor-pointer" onclick="openLightbox('${url}')">
                                 <div class="secure-overlay"></div>
-                                <img src="${url}" class="w-full aspect-[3/4] object-cover rounded-lg pointer-events-none" loading="lazy">
+                                <img src="${url}" class="w-full h-auto object-cover rounded-lg pointer-events-none" loading="lazy">
                             </div>`;
                     });
 
+                    // এখানে 'flex flex-wrap' ব্যবহার করা হয়েছে যাতে ১টা ছবি থাকলে সে বড় না হয়ে নিজের সাইজে সুন্দর দেখায়
                     section.innerHTML = `
                         <div class="flex items-center space-x-4">
                             <h3 class="font-royal text-xl md:text-2xl text-amber-500/90 tracking-widest">${year}</h3>
                             <div class="flex-grow h-[1px] bg-gradient-to-r from-amber-950 to-transparent"></div>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">${gridHTML}</div>
+                        <div class="flex flex-wrap gap-6 justify-start">${gridHTML}</div>
                     `;
                     timelineContainer.appendChild(section);
                 });
