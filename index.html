@@ -1170,6 +1170,33 @@ box-shadow:
         statusBadge.textContent = "💻 Mode: Standalone pipeline layout variable snapshot active";
         buildTrueWaterfallMasonry(localDemoJSON);
       }
+
+
+  // ফুটারের জন্য আগের ছেঁড়া কাগজের ফাংশনটি কল
+  injectOrganicTornMask();
+  // =========================================================================
+  // 💙 100% WORKING AUTOMATIC BLUE HEART FAVICON PULSE ENGINE
+  // =========================================================================
+  let isIconScaled = false;
+  
+  // ব্রাউজার ট্যাবের আইকন টার্গেট করার জন্য নতুন লিংক এলিমেন্ট তৈরি করা
+  let faviconElement = document.querySelector("link[rel*='icon']");
+  if (!faviconElement) {
+    faviconElement = document.createElement('link');
+    faviconElement.rel = 'icon';
+    document.head.appendChild(faviconElement);
+  }
+
+  // প্রতি 700ms পর পর আইকনের স্কেল ডাইনামিকালি চেঞ্জ করবে (নড়াচড়া করবে)
+  setInterval(() => {
+    const scaleValue = isIconScaled ? "90" : "70"; // ছবির সাইজ বড়-ছোট করবে
+    const blueHeartSVG = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.85em' font-size='${scaleValue}'>💙</text></svg>`;
+    
+    faviconElement.setAttribute('href', blueHeartSVG);
+    isIconScaled = !isIconScaled;
+  }, 700);
+
+      
     });
 
     function buildTrueWaterfallMasonry(dataPayload) {
