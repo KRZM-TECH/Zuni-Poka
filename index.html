@@ -1,124 +1,1146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Princess Legacy</title>
-    <script src="https://jsdelivr.net"></script>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        body { background-color: #050505; color: #f7ebd3; font-family: 'Montserrat', sans-serif; }
-        .font-royal { font-family: 'Cinzel', serif; }
-        * { -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
-        
-        /* Smooth Floating & Zoom Effect for Masonry Items */
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 24px;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .masonry-item:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.25);
-            z-index: 10;
-        }
-        .secure-overlay { position: absolute; inset: 0; background: transparent; z-index: 5; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asymmetric Compact Mosaic Gallery</title>
+  <style>
+    /* Reset & Master Workspace View */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+body {
+  /* Dynamic deployment clean real concrete texture engine */
+  background-color: #f7f9fa;
+  background-image: url('https://transparenttextures.com/patterns/beige-paper.png');
+  background-repeat: repeat;
+  
+  /* Shadow layout configuration variables to optimize visual depth metrics */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.04); 
+  
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 24px 32px 100px 32px; /* Fixed footer er jonno niche 100px gap kora holo */
+  color: #0f172a;
+}
+/* =========================================================================
+   ✨ PREMIUM TORN PAPER APPS DOCK FOOTER (ছেরা কাগজের স্টাইল)
+   ========================================================================= */
+.fixed-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  
+  /* Safe adaptive dimension layouts constraints mappings */
+  width: 90%;
+  max-width: 530px; 
+  
+  /* Solid soft paper tint profile setup color matrix */
+  background: #e2e8f096;
+  
+  /* 🔥 THE TORN PAPER STROKE EFFECT: 
+     Uses dynamic complex polygonal clipping mask engine to generate real organic asymmetric rough torn edges! */
+  /* 🔥 ENHANCED DYNAMIC TORN EDGES CLIP-PATH MASK LAYER */
+clip-path: polygon(
+  0% 8%, 4% 1%, 10% 7%, 16% 0%, 23% 9%, 31% 2%, 39% 8%, 45% 0%, 52% 9%, 
+  60% 1%, 67% 7%, 75% 0%, 83% 8%, 91% 1%, 96% 7%, 100% 0%, 
+  99% 91%, 95% 99%, 88% 90%, 81% 100%, 73% 92%, 66% 99%, 58% 90%, 50% 100%, 
+  41% 91%, 33% 99%, 25% 90%, 18% 100%, 11% 91%, 5% 98%, 0% 89%
+);
+
+/* Enhanced shadow depth layer setup for real paper float aesthetic look */
+box-shadow: 
+  0 12px 28px -8px rgba(120, 110, 90, 0.35), 
+  0 3px 8px rgba(0, 0, 0, 0.05);
+
+  
+  /* Thin organic soft border shadow simulation */
+  border-top: 1px solid rgba(139, 92, 26, 0.15);
+  border-bottom: 1px solid rgba(139, 92, 26, 0.15);
+  
+  padding: 10px 24px; /* Ultra-chikon padding adjustments */
+  
+  /* Soft layered realistic paper floating drop-shadow distribution metrics */
+
+  
+  /* Spacing alignment mappings logic grids row loop layout rules */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px; 
+  z-index: 999999999 !important;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fixed-footer:hover {
+  transform: translateY(-2px);
+}
+
+/* Left Content text formatting properties data alignment checks */
+.footer-left {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap; /* Keeps formatting rows crisp on desktop view monitors */
+}
+
+/* Heart pulsing micro-animations calculations matrix */
+.footer-left .heart-icon {
+  font-size: 0.95rem;
+  color: #ef4444;
+  animation: dynamicPulse 1.4s infinite ease-in-out;
+  display: inline-block;
+}
+
+.footer-left span {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* Right Section Link structural layouts settings metrics array */
+.footer-right {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.developer-link {
+  color: #2563eb !important;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 3px 10px; 
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 4px; /* Keeps slightly blocky matching torn styles aesthetic look */
+  transition: all 0.2s ease;
+  display: inline-block;
+  border: 1px dashed rgba(37, 99, 235, 0.2); /* Dashed stitch border lines effect */
+}
+
+.developer-link:hover {
+  background: #2563eb;
+  color: #ffffff !important;
+}
+
+@keyframes dynamicPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* 📱 IMMUTABLE PHONE SMARTPHONE MOBILE IMMUTABLE RESPONSIVE PRESETS FRAMEWORK */
+@media (max-width: 768px) {
+  .fixed-footer {
+    width: 92% !important;
+    max-width: 380px;
+    padding: 10px 14px;
+    bottom: 16px;
+    
+    /* Auto text stacked alignment protection workflow layers formatting blocks inside tiny resolutions screens */
+    flex-direction: column !important;
+    gap: 6px !important;
+    text-align: center;
+    
+    /* Micro responsive scaling adjustments for asymmetric polygon masks on small screen space */
+    clip-path: polygon(
+      0% 6%, 6% 0%, 15% 4%, 25% 1%, 38% 5%, 50% 2%, 65% 5%, 78% 1%, 88% 5%, 100% 2%,
+      98% 94%, 88% 97%, 72% 94%, 55% 98%, 40% 93%, 25% 97%, 12% 94%, 0% 98%
+    );
+  }
+  
+  .footer-left, .footer-right {
+    white-space: normal !important;
+    font-size: 0.78rem;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+    .status-badge {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 20px;
+      font-weight: 600;
+      display: inline-block;
+      background: #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .year-container {
+      margin-bottom: 50px;
+      width: 100%;
+    }
+
+    /* Minimal Custom Header Title styling */
+    .year-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      display: inline-block;
+      position: relative;
+      color: #0f172a;
+    }
+
+    .year-title::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 40px;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      border-radius: 10px;
+    }
+
+    /* 
+       ⚡ PINTEREST WATERFALL MASONRY ENGINE:
+       Forces exactly 5 columns on laptop screens while packing tight vertically.
+       This structure creates distinct asymmetrical vertical layout columns.
+    */
+    .gallery-masonry {
+      column-count: 5; /* 5 tracks to pack maximum pictures on laptop screens */
+      column-gap: 12px;
+      width: 100%;
+    }
+
+    /* Column Count rules for different monitors viewports screen limits */
+    @media (min-width: 1440px) {
+      .gallery-masonry { column-count: 6; }
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-masonry { column-count: 4; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 16px; }
+      .year-title { font-size: 1.4rem; }
+      .gallery-masonry { 
+        column-count: 2; /* Optimal viewing density for tiny devices */
+        column-gap: 10px; 
+      }
+    }
+
+    /* 
+       ✨ PHOTO FRAME CONTAINER:
+       Uses strict variable mappings to enforce real structural uneven height differences.
+    */
+    .photo-wrapper {
+      break-inside: avoid; /* Prevents column splitting glitch */
+      margin-bottom: 12px;
+      border-radius: 14px; /* Curved edge styles */
+      overflow: hidden;
+      background-color: #f1f5f9;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .photo-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+    }
+
+    /* 
+       📸 CRISP OVERALL FILL MECHANISM:
+       'object-fit: cover' guarantees full-card coverage.
+       Extra overflowing parts are cut clean naturally without layout distortion stretch.
+    */
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      display: block;
+    }
+
+    /* 
+       🎯 MICRO-SCALED RANDOMIZED SHAPE MODIFIERS:
+       Compact heights forced to populate at least 4-5 rows simultaneously on your screen layout.
+    */
+    .card-small { height: 110px; }
+    .card-medium { height: 160px; }
+    .card-tall { height: 210px; }
+    .card-extra { height: 270px; }
+  </style>
 </head>
-<body class="overflow-x-hidden" oncontextmenu="return false;">
+<body>
 
-    <!-- 1. Iconic Landing Screen -->
-    <section class="w-screen h-screen flex flex-col items-center justify-center relative px-4 text-center bg-radial from-neutral-900 to-black">
-        <img src="photos/iconic.jpg" class="absolute inset-0 w-full h-full object-cover z-0 opacity-40" style="filter: blur(2px);" onerror="this.style.display='none'">
-        <div class="secure-overlay"></div>
-        <div class="z-10 max-w-3xl space-y-8 pointer-events-none">
-            <h1 class="font-royal text-4xl md:text-7xl font-bold tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-400 to-amber-600 drop-shadow-2xl">MY PRINCESS</h1>
-            <p class="italic text-lg md:text-2xl text-amber-200/80 font-light max-w-xl mx-auto">"In your smile, I see something more beautiful than the stars."</p>
-            <div class="w-12 h-[1px] bg-amber-500 mx-auto mt-8 animate-bounce"></div>
-        </div>
-    </section>
+  <div class="status-badge" id="app-status">Syncing grid framework parameters...</div>
+  <div id="gallery-root"></div>
 
-    <!-- 2. Chronological Archive -->
-    <section class="max-w-7xl mx-auto px-4 md:px-8 py-24">
-        <h2 class="font-royal text-2xl md:text-3xl tracking-[0.2em] text-center text-amber-400 mb-16">CHRONOLOGICAL ARCHIVE</h2>
-        <div id="timeline-container" class="space-y-24">
-            <!-- ছবিগুলো এখানে বছর অনুযায়ী মোজাইক গ্রিডে অটো-সাজাবে -->
-        </div>
-    </section>
+  <script>
+    // =========================================================================
+    // ⚙️ GITHUB REPLOYMENT ENVIRONMENT CONFIG
+    // =========================================================================
+    // GitHub repositories path deploy korar time tracking toggle element: true / false
+    const GITHUB_MODE = false; 
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 bg-black/98 z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
-        <div class="secure-overlay"></div>
-        <img id="lightbox-img" src="" alt="View" class="max-w-full max-h-[92vh] object-contain rounded border border-amber-950/20 shadow-2xl">
-    </div>
+    // Production-ready data injection simulation payload
+    const localDemoJSON = [
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2022"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2024"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2022"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2022"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2022"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1523547743064-d0936dbb6ed3.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1660749120048-589827cd6181.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1707161692345-8e4684a77d8c.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1752481444912-6a4c322de10b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1594149221886-eb520f85ad25.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1589156191108-c762ff4b96ab.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488197047962-b48492212cda.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1469565686301-a0cf06bacf92.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827291-72ee739d0d9a.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1459213599465-03ab6a4d5931.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1679540375857-dd5a85bfd3d6.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1444044205806-38f3ed106c10.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1580996554587-5d5cfc78b004.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1488161628813-04466f872be2.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1548783307-f63adc3f200b.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1587653263995-422546a7a569.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1447871622716-5dc761437456.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1693043906043-fc76548579af.jpg",
+    "year": "2022"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1559827260-dc66d52bef19.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1539125530496-3ca408f9c2d9.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1600679620924-47bf7fcbd629.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1640008404828-3d3cc5a11fd4.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1608965112849-6eb5e5d106b0.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1751460374271-377219ff8336.jpg",
+    "year": "2025"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1749460396807-b065b6694f02.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1750008172607-d6408ebfc9b5.jpg",
+    "year": "2026"
+  },
+  {
+    "url": "https://assets.codepen.io/215059/photo-1663747638247-f2317493492c.jpg",
+    "year": "2026"
+  }
+];
 
-    <!-- Footer -->
-    <footer class="text-center py-12 border-t border-amber-950/10 font-sans text-amber-700/40 text-xs tracking-widest uppercase">
-        Archived with ♥ by Khalid Saifullah for Zunaisha Jannat Mariyam • Protected & Secure
-    </footer>
+    window.addEventListener('DOMContentLoaded', () => {
+      const statusBadge = document.getElementById('app-status');
 
-    <script>
-        // কড়া প্রোটেকশন (F12, Ctrl+S, Right Click ব্লক)
-        document.addEventListener('keydown', function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
-                e.preventDefault();
-            }
+      if (GITHUB_MODE) {
+        statusBadge.textContent = "🌐 Mode: Fetching dynamically from 'photos.json'...";
+        fetch('photos.json')
+          .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+          .then(data => buildTrueWaterfallMasonry(data))
+          .catch(() => { statusBadge.textContent = "❌ Error: Could not read 'photos.json' data framework!"; });
+      } else {
+        statusBadge.textContent = "💻 Mode: Standalone pipeline layout variable snapshot active";
+        buildTrueWaterfallMasonry(localDemoJSON);
+      }
+    });
+
+    function buildTrueWaterfallMasonry(dataPayload) {
+      const targetRoot = document.getElementById('gallery-root');
+      targetRoot.innerHTML = ''; 
+      const segmentMap = {};
+
+      dataPayload.forEach(item => {
+        if (!segmentMap[item.year]) segmentMap[item.year] = [];
+        segmentMap[item.year].push(item);
+      });
+
+      const sortedYears = Object.keys(segmentMap).sort((a, b) => b - a);
+      
+      // Strict distinct height classes list to scatter sizing variations
+      const sizingClasses = ['card-small', 'card-medium', 'card-tall', 'card-extra'];
+
+      sortedYears.forEach((yearKey, sectionIndex) => {
+        const yearSectionNode = document.createElement('div');
+        yearSectionNode.className = 'year-container';
+
+        const dynamicHeader = document.createElement('h2');
+        dynamicHeader.className = 'year-title';
+        dynamicHeader.textContent = `Year: ${yearKey}`;
+        yearSectionNode.appendChild(dynamicHeader);
+
+        const masonryWrapper = document.createElement('div');
+        masonryWrapper.className = 'gallery-masonry';
+
+        segmentMap[yearKey].forEach((photoNode, photoIndex) => {
+          const wrapperCard = document.createElement('div');
+          
+          // Modulus distribution algorithm forces pure random mosaic look scatter
+          const appliedSizeClass = sizingClasses[(photoIndex * 3 + sectionIndex * 5) % sizingClasses.length];
+          wrapperCard.className = `photo-wrapper ${appliedSizeClass}`;
+
+          const activeImg = document.createElement('img');
+          activeImg.src = photoNode.url;
+          activeImg.alt = `True Masonry Object Frame - ${yearKey}`;
+          activeImg.loading = "lazy";
+
+          wrapperCard.appendChild(activeImg);
+          masonryWrapper.appendChild(wrapperCard);
         });
 
-        const timelineContainer = document.getElementById('timeline-container');
+        yearSectionNode.appendChild(masonryWrapper);
+        targetRoot.appendChild(yearSectionNode);
+      });
+    }
+// =========================================================================
+// 📄 PURE DYNAMIC SEAMLESS TORN PAPER MASK GENERATOR (100% REAL RANDOMNESS)
+// =========================================================================
+function injectOrganicTornMask() {
+  const footerNode = document.querySelector('.fixed-footer');
+  if (!footerNode) return;
 
-        async function loadTimelineGallery() {
-            try {
-                // আপনার রোবটের বানানো ফাইলে রিকোয়েস্ট পাঠানো হচ্ছে
-                const response = await fetch('photos.json');
-                const photos = await response.json();
-                
-                const groups = {};
-                photos.forEach(photo => {
-                    if (!groups[photo.year]) groups[photo.year] = [];
-                    groups[photo.year].push(photo.url);
-                });
+  const segmentsCount = 26; // Coordinates complexity controller bounds
+  let topPath = "0% 0%";
+  let bottomPath = "";
 
-                const sortedYears = Object.keys(groups).sort((a, b) => b - a);
+  // 1. Top rough edge coordinates calculations loop tracking matrix
+  for (let i = 1; i <= segmentsCount; i++) {
+    const xPercentage = (i / segmentsCount) * 100;
+    const yRandomOffset = Math.floor(Math.random() * 8); // Random fluctuations between 0% to 8% range values
+    topPath += `, ${xPercentage}% ${yRandomOffset}%`;
+  }
 
-                sortedYears.forEach(year => {
-                    const section = document.createElement('div');
-                    section.className = "space-y-8";
-                    
-                    let gridHTML = '';
-                    groups[year].forEach(url => {
-                        // স্ক্রিনশটের মতো রাউন্ডেড কোনা (rounded-3xl) এবং ম্যাসনরি কার্ড
-                        gridHTML += `
-                            <div class="masonry-item relative bg-[#0f0f0f] border border-amber-950/10 rounded-3xl p-3 cursor-pointer group" onclick="openLightbox('${url}')">
-                                <div class="secure-overlay"></div>
-                                <img src="${url}" class="w-full h-auto object-cover rounded-2xl pointer-events-none" loading="lazy">
-                            </div>`;
-                    });
+  // 2. Bottom rough edge coordinates calculations loop rules mapping data variables
+  for (let i = segmentsCount; i >= 0; i--) {
+    const xPercentage = (i / segmentsCount) * 100;
+    const yRandomOffset = 92 + Math.floor(Math.random() * 8); // Random fluctuations between 92% to 100% bounds
+    bottomPath += `${xPercentage}% ${yRandomOffset}%`;
+    if (i > 0) bottomPath += ", ";
+  }
 
-                    // columns স্টাইল ব্যবহার করে আপনার কাঙ্ক্ষিত ম্যাঙ্গাজিন মোজাইক লেআউট নিয়ে আসা হয়েছে
-                    section.innerHTML = `
-                        <div class="flex items-center space-x-4 mb-4">
-                            <h3 class="font-royal text-xl md:text-2xl text-amber-500/90 tracking-widest">${year}</h3>
-                            <div class="flex-grow h-[1px] bg-gradient-to-r from-amber-950 to-transparent"></div>
-                        </div>
-                        <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 w-full">${gridHTML}</div>
-                    `;
-                    timelineContainer.appendChild(section);
-                });
-            } catch (error) {
-                console.log("No photos found yet or JSON pending.", error);
-            }
-        }
+  // Compile final dynamic polygon mask layout settings parameters mapping output keys
+  const randomizedPolygon = `polygon(${topPath}, ${bottomPath})`;
+  footerNode.style.clipPath = randomizedPolygon;
+  footerNode.style.webkitClipPath = randomizedPolygon;
+}
 
-        function openLightbox(url) {
-            document.getElementById('lightbox-img').src = url;
-            document.getElementById('lightbox').classList.remove('hidden');
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-        }
+// Dom content read runtime mapping layers to trigger automatically on startup
+window.addEventListener('DOMContentLoaded', injectOrganicTornMask);
 
-        window.onload = loadTimelineGallery;
-    </script>
+
+  </script>
+<!-- ✨ PREMIUM CAPSULED FIXED FOOTER INTERFACE -->
+<footer class="fixed-footer">
+  <div class="footer-left">
+    Memory Book of <span>Zunaisha Jannat Mariyam</span> <span class="heart-icon">❤️</span>
+  </div>
+  <div class="footer-right">
+    Developed by <a class="developer-link" href="https://fb.me/khalid.ofcl" target="_blank" rel="noopener noreferrer">Khalid Saifullah</a>
+  </div>
+</footer>
+
 </body>
 </html>
